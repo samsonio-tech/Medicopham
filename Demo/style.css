@@ -1,0 +1,573 @@
+
+  
+ 
+  /* CSS Styles */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    
+    
+  }
+
+  .alert {
+    background-color: #f44336;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #4CAF50;
+    font-size: 28px;
+    margin-bottom: 20px;
+    
+  }
+  
+  p {
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+  
+  .button {
+display: inline-block;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+background-color: #4CAF50;
+color: #fff;
+text-align: center;
+text-decoration: none;
+font-size: 16px;
+cursor: pointer;
+}
+
+.button:hover {
+background-color: #45a049;
+}
+
+.button:focus,
+.button:active {
+transform: scale(0.95);
+}
+
+
+/* Lead Capture Section Styles */
+.lead-capture {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.lead-capture h2 {
+  font-size: 24px;
+  color: #4CAF50;
+  margin-bottom: 10px;
+}
+
+.lead-capture p {
+  font-size: 18px;
+  color: #666;
+}
+
+
+.lead-capture input[type="email"] {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.lead-capture .button {
+  display: block;
+  margin: 0 auto;
+}
+
+  
+  /* Responsive Image Styles */
+  .responsive-image {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      padding: 10px;
+    }
+  }
+
+
+
+
+
+  /* Additional Offers Styles */
+  .additional-offers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .additional-offer {
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.3s ease;
+  }
+
+
+  
+  .additional-offer img {
+  max-width: 100%; /* Ensure GIFs don't exceed the width of the card */
+  height: auto; /* Maintain the aspect ratio of the GIFs */
+  display: block;
+  margin: 0 auto 10px; /* Center the GIFs horizontally */
+}
+
+  .additional-offer:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .additional-offer h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+
+  .additional-offer p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+
+  .additional-offer a {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 5px;
+    background-color:#4CAF50; 
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .additional-offer a:hover {
+    background-color: #45a049;
+  }
+
+  
+  .additional-offer a:focus {
+    outline: none;
+  }
+  
+  .additional-offer a:active {
+    transform: scale(0.95);
+  }
+
+  .additional-offer a:focus,
+  .additional-offer a:active {
+    background-color: #3e8e41;
+  }
+ .dashboard {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  .dashboard h2 {
+    font-size: 24px;
+    color: #4CAF50;
+    margin-bottom: 10px;
+  }
+
+  .dashboard p {
+    font-size: 18px;
+    color: #666;
+  }
+
+  .dashboard span {
+    font-weight: bold;
+  }
+
+  .footer {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+  }
+  
+  .footer a {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    border: 1px solid #4CAF50;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  .footer a:hover {
+    background-color: #45a049;
+  }
+
+  .claim-section {
+text-align: center;
+margin-top: 20px;
+}
+
+.claim-section h2 {
+font-size: 24px;
+color: #4CAF50;
+margin-bottom: 10px;
+}
+
+.claim-section p {
+font-size: 18px;
+color: #666;
+}
+
+.claim-section button {
+display: inline-block;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+background-color: #4CAF50;
+color: #fff;
+text-align: center;
+text-decoration: none;
+font-size: 16px;
+cursor: pointer;
+}
+
+
+
+.alertme {
+          padding: 15px;
+          background-color: #d4edda;
+          border-color: #c3e6cb;
+          color: #155724;
+          border-radius: 5px;
+          font-size: 16px;
+          font-weight: bold;
+      }
+
+      
+
+ /* CSS Styles for the Video Explainer */
+ .video-explainer {
+text-align: center;
+margin-top: 20px;
+}
+
+.video-explainer h2 {
+font-size: 24px;
+color: #4CAF50;
+margin-bottom: 10px;
+}
+
+.video-container {
+position: relative;
+padding-bottom: 56.25%; /* 16:9 aspect ratio (for a 16:9 video) */
+height: 0;
+}
+
+.video-container iframe {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+}
+
+
+
+
+
+/* Testimonial Section Styles */
+.testimonial-section {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.testimonial-section h2 {
+  font-size: 24px;
+  color: #4CAF50;
+  margin-bottom: 10px;
+}
+
+.testimonial-section .row {
+  display: flex;
+  justify-content: center;
+}
+
+.testimonial-section .col-md-6 {
+  padding: 10px;
+}
+
+.testimonial-section .card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease;
+}
+
+.testimonial-section .card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-section blockquote {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.testimonial-section footer {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+h2 {
+    text-align: center;
+    color: #4CAF50;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+
+  
+.gift-card-offers {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+margin-top: 20px;
+}
+
+.gift-card-offer {
+width: 200px;
+margin: 10px;
+padding: 10px;
+background-color: #f9f9f9;
+border-radius: 5px;
+text-align: center;
+box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+transition: box-shadow 0.3s ease;
+}
+
+.gift-card-offer img {
+max-width: 100%;
+height: auto;
+display: block;
+margin: 0 auto 10px;
+cursor: pointer;
+}
+
+.gift-card-offer:hover {
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.gift-card-offer a {
+display: inline-block;
+padding: 8px 16px;
+border-radius: 5px;
+background-color: #4CAF50;
+color: #fff;
+text-decoration: none;
+font-size: 14px;
+transition: background-color 0.3s ease;
+}
+
+.gift-card-offer a:hover {
+background-color: #45a049;
+}
+
+
+.earning-image {
+max-width: 100%;
+height: auto;
+margin-bottom: 10px;
+}
+
+
+/* Pagination controls */
+.pagination {
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 20px;
+}
+
+.arrow-button {
+width: 40px;
+height: 40px;
+background-color: #007bff; /* Replace with your desired background color */
+color: #fff; /* Replace with your desired text color */
+border: none;
+border-radius: 50%;
+font-size: 20px;
+cursor: pointer;
+transition: background-color 0.2s ease-in-out;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.arrow-button i {
+/* Adjust the icon position within the button */
+margin-top: 1px;
+}
+
+.arrow-button:hover {
+  background-color: #3e8e41;
+/*background-color: #0056b3; /* Replace with the hover background color */
+}
+
+
+/* Add these CSS styles to style the profile image */
+.avatar-container {
+  text-align: center;
+}
+
+.avatar-label {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.profile-image {
+  max-width: 150px; /* Adjust the max-width as needed */
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease;
+}
+
+.profile-image:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+  background-color: #f2f2f2;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+li:first-child {
+  color:  #28a745;
+}
+
+li:nth-child(2) {
+  color: #28a745;
+}
+
+.blue-background {
+  background-color: #3498db;
+  color: white; /* Set text color to white for better contrast */
+  padding: 5px; /* Add some padding for spacing */
+}
+
+.green-background {
+  background-color: #28a745;
+  color: white; /* Set text color to white for better contrast */
+  padding: 5px; /* Add some padding for spacing */
+}
+
+
+.warning-background {
+  background-color: #ffc107;
+  color: white; /* Set text color to white for better contrast */
+  padding: 5px; /* Add some padding for spacing */
+}
+
+.danger-background {
+  background-color: #dc3545;
+  color: white; /* Set text color to white for better contrast */
+  padding: 5px; /* Add some padding for spacing */
+}
+
+
+.info-background {
+  background-color: #6c757d;
+  color: white; /* Set text color to white for better contrast */
+  padding: 5px; /* Add some padding for spacing */
+}
+
+
+CSS
+
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.navbar {
+    background-color: #333;
+    color:  #28a745;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.menu-icon,
+.close-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+}
+
+.menu li {
+    padding: 10px 0;
+}
+
+.menu a {
+    color:  #28a745;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+.disabled-link {
+  pointer-events: none;
+  color: gray; /* You can choose a color for the disabled link text */
+  text-decoration: none; /* Remove underline */
+  cursor: not-allowed; /* Show a "not-allowed" cursor */
+}

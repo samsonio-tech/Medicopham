@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Congratulations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .dialog-box {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .congratulations {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #ffcc00;
+        }
+
+        .snake-button {
+            background-color: #ffcc00;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .snake-button:hover {
+            background-color: #ff9900;
+        }
+
+
+        
+        /* Coin animation */
+        .coin-effect {
+            position: absolute;
+            display: none;
+            width: 40px;
+            height: 40px;
+            background-image: url('./img/Golden\ $_0.png'); /* Replace 'coin.png' with your coin image */
+            background-size: cover;
+            animation: collect-coin 1s linear;
+        }
+
+        @keyframes collect-coin {
+            0% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -150%) scale(0.5);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="dialog-box">
+            <div class="congratulations">Congratulations!</div>
+            <p>You've come a long way—claim your $10 coin now, and your earnings will be visible on the dashboard.</p>
+            <button class="snake-button" id="coinButton">$10</button>
+            <div class="coin-effect" id="coin"></div>
+        </div>
+    </div>
+    <audio id="coinSound" src="./audio/523547__matrixxx__retro-underwater-coin.wav"></audio>
+
+    <script>
+     const coinButton = document.getElementById('coinButton');
+const coinEffect = document.getElementById('coin');
+const coinSound = document.getElementById('coinSound');
+
+coinButton.addEventListener('click', () => {
+    // Play the coin sound
+    coinSound.play();
+
+    // Clone the coin effect 10 times
+    for (let i = 0; i < 10; i++) {
+        const clonedCoin = coinEffect.cloneNode(true);
+        document.body.appendChild(clonedCoin);
+
+        setTimeout(() => {
+            // Remove the cloned coin after the animation
+            clonedCoin.remove();
+        }, 1000); // Remove the cloned coin after 1 second
+
+        // Adjust the position of the cloned coin to scatter them
+        const randomX = Math.random() * window.innerWidth;
+        const randomY = Math.random() * window.innerHeight;
+        clonedCoin.style.left = `${randomX}px`;
+        clonedCoin.style.top = `${randomY}px`;
+
+        // Trigger the animation
+        setTimeout(() => {
+            clonedCoin.style.display = 'block';
+        }, i * 100); // Delay each clone's animation by 100 milliseconds
+    }
+});
+
+    </script>
+</body>
+</html>

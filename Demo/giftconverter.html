@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Card Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .converter-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #result {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="converter-container">
+        <h1>Gift Card Converter</h1>
+        <label for="amount">Enter Gift Card Amount:</label>
+        <input type="text" id="amount" placeholder="Enter amount in USD">
+        <label for="currency">Select Currency:</label>
+        <select id="currency">
+            <option value="usd">USD</option>
+            <option value="eur">EUR</option>
+            <option value="gbp">GBP</option>
+            <!-- Add more currency options as needed -->
+        </select>
+        <button onclick="convertGiftCard()">Convert</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function convertGiftCard() {
+            const amountInput = document.getElementById("amount");
+            const currencySelect = document.getElementById("currency");
+            const resultDiv = document.getElementById("result");
+
+            const amount = parseFloat(amountInput.value);
+            const selectedCurrency = currencySelect.value;
+
+            // Perform the conversion logic here (you may need to fetch exchange rates from an API)
+            // For simplicity, we'll just display the selected amount and currency for now
+            resultDiv.textContent = `Converted Amount: ${amount} ${selectedCurrency}`;
+        }
+    </script>
+</body>
+</html>

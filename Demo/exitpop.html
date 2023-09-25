@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .exit-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.exit-popup-content {
+  max-width: 400px;
+  margin: 15% auto;
+  padding: 20px;
+  background-color: #fff;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.exit-popup-content h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.exit-popup-content p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.exit-popup-content button,
+.exit-popup-content a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.exit-popup-content button {
+  margin-right: 10px;
+}
+
+.exit-popup-content button:hover,
+.exit-popup-content a:hover {
+  background-color: #0056b3;
+}
+
+    </style>
+</head>
+<body>
+    <div id="exitPopup" class="exit-popup">
+        <div class="exit-popup-content">
+          <h2>Last Chance to Win!</h2>
+          <p>Take our survey and stand a chance to win amazing prizes.</p>
+          <button id="exitPopupCloseButton">No, I don't want to win</button>
+          <a href="https://your-survey-url.com" id="exitPopupSurveyButton">Yes, take me to the survey</a>
+        </div>
+      </div>
+      <script>
+        function showExitPopup() {
+            document.getElementById('exitPopup').style.display = 'block';
+        }
+      
+        function hideExitPopup() {
+            document.getElementById('exitPopup').style.display = 'none';
+        }
+      
+        // Attach event listener to the close button
+        document.getElementById('exitPopupCloseButton').addEventListener('click', function () {
+            hideExitPopup();
+        });
+      
+        // Attach event listener to the survey button
+        document.getElementById('exitPopupSurveyButton').addEventListener('click', function () {
+            // You can customize the survey URL here or handle the survey logic in your WordPress plugin
+            // For example: window.location.href = 'https://your-survey-url.com';
+            hideExitPopup();
+        });
+      
+        // Attach event listener to the cursor movement event (mouseleave)
+        document.addEventListener('mouseleave', function (event) {
+            // Check if the cursor is leaving the top of the viewport
+            if (event.clientY <= 0) {
+                showExitPopup();
+            }
+        });
+
+        // Attach event listener to the pagehide event (for mobile back button)
+        window.addEventListener('pagehide', function(event) {
+            // Check if the pagehide event is triggered (user pressed back or navigated away)
+            showExitPopup();
+        });
+
+        // Attach event listener to the beforeunload event (for mobile scroll to type URL)
+        window.addEventListener('beforeunload', function(event) {
+            // Show the exit pop-up
+            showExitPopup();
+
+            // The following line is required to display the native browser exit confirmation message
+            delete event['returnValue'];
+        });
+    </script>
+</body>
+</html>

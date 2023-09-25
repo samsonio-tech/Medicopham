@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.css">
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-njn1/YIu72rurXJu5kji+AkPwoG3doKq4ZDEm6S4hXj2hpo9MPU7UML2TVPg1AXdZuspxL70W2vETx3k2buWw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+  <title>EARN FROM HOME</title>
+  
+
+  
+  <style>
+    /* CSS Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      font-size: 16px;
+      
+    }
+    
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      
+      
+    }
+
+    .alert {
+      background-color: #f44336;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+    
+    h1 {
+      text-align: center;
+      color: #4CAF50;
+      font-size: 28px;
+      margin-bottom: 20px;
+      
+    }
+    
+    p {
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+    
+    .button {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+.button:focus,
+.button:active {
+  transform: scale(0.95);
+}
+
+
+ /* Lead Capture Section Styles */
+ .lead-capture {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .lead-capture h2 {
+    font-size: 24px;
+    color: #4CAF50;
+    margin-bottom: 10px;
+  }
+
+  .lead-capture p {
+    font-size: 18px;
+    color: #666;
+  }
+
+
+  .lead-capture input[type="email"] {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+
+  .lead-capture .button {
+    display: block;
+    margin: 0 auto;
+  }
+
+    
+    /* Responsive Image Styles */
+    .responsive-image {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    @media (max-width: 480px) {
+      .container {
+        padding: 10px;
+      }
+    }
+
+
+  
+  
+
+    /* Additional Offers Styles */
+    .additional-offers {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .additional-offer {
+      width: 200px;
+      margin: 10px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      transition: box-shadow 0.3s ease;
+    }
+    .additional-offer:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .additional-offer h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .additional-offer p {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .additional-offer a {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 5px;
+      background-color:#4CAF50; 
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .additional-offer a:hover {
+      background-color: #45a049;
+    }
+
+    
+    .additional-offer a:focus {
+      outline: none;
+    }
+    
+    .additional-offer a:active {
+      transform: scale(0.95);
+    }
+
+    .additional-offer a:focus,
+    .additional-offer a:active {
+      background-color: #3e8e41;
+    }
+   .dashboard {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .dashboard h2 {
+      font-size: 24px;
+      color: #4CAF50;
+      margin-bottom: 10px;
+    }
+
+    .dashboard p {
+      font-size: 18px;
+      color: #666;
+    }
+
+    .dashboard span {
+      font-weight: bold;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #ccc;
+    }
+    
+    .footer a {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      border: 1px solid #4CAF50;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    
+    .footer a:hover {
+      background-color: #45a049;
+    }
+
+    .claim-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.claim-section h2 {
+  font-size: 24px;
+  color: #4CAF50;
+  margin-bottom: 10px;
+}
+
+.claim-section p {
+  font-size: 18px;
+  color: #666;
+}
+
+.claim-section button {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+.countdown {
+  font-size: 48px;
+  font-weight: bold;
+  color: #4CAF50;
+}
+
+
+
+
+
+/* Exit Intent Popup Styles */
+.exit-intent-popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 9999; /* Ensure the popup is on top of other elements */
+}
+
+.exit-intent-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  z-index: 10000; /* Ensure the popup is on top of the overlay */
+}
+
+.exit-intent-popup h2 {
+  font-size: 24px;
+  color: #4CAF50;
+  margin-bottom: 10px;
+}
+
+/* Add any additional styling for the popup content */
+
+.exit-intent-popup .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+  </style>
+ 
+
+</head>
+<body>
+   
+   
+
+  <div class="container">
+  
+    <div class="lead-capture">
+      <h2>Claim Your Gift Card Now!</h2>
+      <p>Enter your email to get started:</p>
+      <form id="leadCaptureForm">
+        <input type="email" placeholder="Your Email" required>
+        <button type="submit" class="button">Get Started</button>
+      </form>
+    </div>
+    
+    
+     <div class="alert">
+      <p>🔥 Participate in a Quick Survey and Gain Access to $25 Worth of Bitcoin! into your wallet 🔥 EXPLORE OUR PROMOTIONS TO CLAIM THE OFFER.</p>
+    </div>
+    <h1>Claim Your $100 Walmart Gift Card Today!"</h1>
+    <p>
+      Experience shopping bliss at Walmart! Win a $100 Walmart Gift Card and indulge in your favorite products. Complete our quick survey now for a chance to unlock a shopping extravaganza like never before. Hurry, enter today and embark on a journey of blissful shopping!
+    </p>
+    
+   
+      <!-- Dashboard -->
+    <div class="dashboard">
+      <h2>Balance</h2>
+      <p>Total Earnings: $<span id="earnings">0</span></p>
+      <p><a href="withdrawal.html" class="button">Withdraw Earnings</a></p>
+    </div>
+    <!-- Add any additional content or images here -->
+    <img src="./img/walmart1.jpg" alt="Offer Image" class="responsive-image">
+   
+   
+  
+   
+    <!-- Pop-up HTML -->
+     <div class="overlay" id="popupOverlay">
+        <div class="popup" id="popup">
+          <span class="close" id="closePopup">&times;</span>
+          <h2>Bitcoin Offers</h2>
+          <div class="additional-offers">
+            <div class="additional-offer">
+              <h3>Claim offer now</h3>
+              <p> Experience Unmatched Shopping Delights with Bitcoin Rewards!
+                Unlock Your Ticket to Shopping Paradise! Earn Exclusive Bitcoin Rewards by Participating in Our Survey!</p>
+              <a href="https://tinyurl.com/y9jp3yxk">Get Offer</a>
+            </div>
+            <div class="additional-offer">
+              <h3>Claim offer now</h3>
+              <p> Embark on the Bitcoin Revolution Today!
+                Revamp Your Financial Future with Bitcoin - Enter Now and Embrace the Future of Digital Currency! </p>
+              <a href="https://tinyurl.com/36s45ux4">Get Offer</a>
+            </div>
+            <div class="additional-offer">
+              <h3>Claim offer now</h3>
+              <p>Uncover the Power of Bitcoin and Embrace a World of Opportunities!
+                Prepare for Rewards! Participate in our Survey for a Chance to Win Exciting Prizes!</p>
+              <a href="https://tinyurl.com/22xc87be">Get Offer</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+  
+    <!-- Add the popup HTML content -->
+    <div class="exit-intent-popup-overlay" id="exitIntentPopupOverlay">
+      <div class="exit-intent-popup" id="exitIntentPopup">
+        <span class="close" id="closeExitIntentPopup">&times;</span>
+        <h2>Our system has detected bot traffic. To proceed further on this website, kindly verify your human identity.</h2>
+        <div class="additional-offers">
+          <!-- Add your Bitcoin offers content here -->
+          <a href="  https://playabledownloads.com/1463844" style="text-decoration: none; color: #007BFF; font-weight: bold; font-size: 18px; display: inline-block; padding: 10px 20px; border: 2px solid #007BFF; border-radius: 5px; background-color: #FFFFFF; margin-top: 20px;"> confirm you are not a robot</a>
+        
+        </div>
+      </div>
+    </div>
+
+      
+      <div class="claim-section">
+        <h2>Claim Your Gift Card</h2>
+        <p>Do a simple survey and earn cool cash</p>
+        
+      
+<a href="https://tinyurl.com/2p8tbzr4" class="button"> Claim Your Gift Card Now! <i class="fas fa-gift"></i></a>
+      </div>
+      <!-- Add this line to include the Font Awesome JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-njn1/YIu72rurXJu5kji+AkPwoG3doKq4ZDEm6S4hXj2hpo9MPU7UML2TVPg1AXdZuspxL70W2vETx3k2buWw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+      
+        
+    <!-- Footer section -->
+    <div class="footer">
+      <a href="product.html">View Product</a>
+    </div>
+    
+    <!-- Add any additional JavaScript interactivity here -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
+    <script>
+
+
+         // Update earnings on completion of an offer
+      function updateEarnings(amount) {
+        var earningsElement = document.getElementById("earnings");
+        var currentEarnings = parseFloat(earningsElement.innerText);
+        earningsElement.innerText = (currentEarnings + amount).toFixed(2);
+      }
+
+      // Simulate completion of an offer
+      function completeOffer() {
+        // You can replace this with your own logic to track offer completion
+
+        // In this example, we'll assume the completion of an offer adds $25 to earnings
+        var earningsAmount = 25;
+
+        // Update the earnings on the dashboard
+        updateEarnings(earningsAmount);
+      }
+
+      // Attach event listener to the offer completion button
+      var offerButton = document.getElementById("offerButton");
+      offerButton.addEventListener("click", completeOffer);
+    
+      
+      // JavaScript code for lead capture form submission
+      document.getElementById("leadCaptureForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission
+        var email = document.getElementById("leadCaptureForm").elements["email"].value;
+        // Perform any necessary validation or processing here
+        // Submit the form data to your CPA account backend or email service provider
+      });
+
+   
+
+
+
+ </script>
+      
+
+  </div>
+<!-- Add this script at the end of the body -->
+<script>
+  // Function to show the exit-intent popup
+  function showExitIntentPopup() {
+    var exitIntentPopupOverlay = document.getElementById("exitIntentPopupOverlay");
+    exitIntentPopupOverlay.style.display = "block";
+  }
+
+  // Function to hide the exit-intent popup
+  function hideExitIntentPopup() {
+    var exitIntentPopupOverlay = document.getElementById("exitIntentPopupOverlay");
+    exitIntentPopupOverlay.style.display = "none";
+  }
+
+  // Track mouse movement to trigger exit-intent popup
+  var previousX = null;
+  var previousY = null;
+  document.addEventListener("mousemove", function (event) {
+    // Get the current mouse position
+    var currentX = event.clientX;
+    var currentY = event.clientY;
+
+    // Check if the cursor is moving towards the browser's close button or back/forward buttons
+    if (
+      (previousX !== null && previousX > currentX) ||
+      (previousY !== null && previousY > currentY)
+    ) {
+      // Show the popup when the cursor moves towards the close button or back/forward buttons
+      showExitIntentPopup();
+    }
+
+    // Save the current mouse position for the next iteration
+    previousX = currentX;
+    previousY = currentY;
+  });
+
+  // Attach event listener to the "close" button to hide the popup
+  var closeExitIntentPopup = document.getElementById("closeExitIntentPopup");
+  closeExitIntentPopup.addEventListener("click", function () {
+    hideExitIntentPopup();
+  });
+
+  // Handle the "beforeunload" event to show the exit-intent popup when the user tries to leave the page
+  window.addEventListener("beforeunload", function (event) {
+    // Show the popup before the user leaves the page
+    showExitIntentPopup();
+    // Custom message for testing purposes (not recommended for production use)
+    return "Are you sure you want to leave this page?";
+  });
+</script>
+
+
+</body>
+
+
+</html>

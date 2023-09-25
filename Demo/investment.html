@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        /* Your CSS styles here */
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+        }
+
+        #crypto-calculator {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .calculator-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .calculator-display {
+            text-align: right;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .calculator-buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        button {
+           
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e0e0e0;
+        }
+
+           /* Responsive CSS for screens smaller than 600px */
+
+           @media (max-width: 600px) {
+            #crypto-calculator {
+                max-width: 90%;
+            }
+
+            .calculator-title {
+                font-size: 20px;
+            }
+
+            .calculator-display {
+                font-size: 28px;
+            }
+
+            button {
+                font-size: 20px;
+            }
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Investment Calculator</title>
+</head>
+<body>
+  
+    <div id="crypto-calculator">
+        <div class="calculator-title">Crypto Investment Calculator</div>
+        <div class="calculator-display">
+            <input type="text" id="crypto-display" readonly>
+        </div>
+        <!-- Add input fields for investment details -->
+        <input type="text" id="investment-amount" placeholder="Investment Amount">
+        <input type="text" id="crypto-price" placeholder="Crypto Price">
+        <input type="text" id="units" placeholder="Number of Units">
+        <!-- Add a Calculate button -->
+        <button onclick="calculateCryptoResult()">Calculate</button>
+    </div>
+
+    <!-- Calculator buttons outside of the calculator div -->
+    <div class="calculator-buttons">
+        <button onclick="appendToDisplay('7')">7</button>
+        <button onclick="appendToDisplay('8')">8</button>
+        <button onclick="appendToDisplay('9')">9</button>
+        <button onclick="appendToDisplay('+')">+</button>
+        <button onclick="appendToDisplay('4')">4</button>
+        <button onclick="appendToDisplay('5')">5</button>
+        <button onclick="appendToDisplay('6')">6</button>
+        <button onclick="appendToDisplay('-')">-</button>
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('3')">3</button>
+        <button onclick="appendToDisplay('*')">*</button>
+        <button onclick="appendToDisplay('0')">0</button>
+        <button onclick="appendToDisplay('.')">.</button>
+        <button onclick="clearCryptoDisplay()">C</button>
+        <button onclick="calculateCryptoResult()">=</button>
+        <button onclick="appendToDisplay('/')">/</button>
+        <!-- Add more buttons for crypto-related actions -->
+    </div>
+
+    <!-- Display the calculated result -->
+    <div id="crypto-calculator-result">
+        Total Investment Value: <span id="investment-value">0</span>
+    </div>
+
+    <script>
+        // JavaScript functions for your crypto calculator
+        function appendToDisplay(value) {
+            // Handle user input and display it in the input field
+            var display = document.getElementById('crypto-display');
+            display.value += value;
+        }
+
+        function clearCryptoDisplay() {
+            // Clear the input field
+            var display = document.getElementById('crypto-display');
+            display.value = '';
+        }
+
+        function calculateCryptoResult() {
+            // Perform crypto-related calculations based on user inputs
+            // Implement your custom logic here
+            // Update the result in the result section
+        }
+    </script>
+</body>
+</html>

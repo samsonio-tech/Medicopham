@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.search-section {
+    margin-bottom: 20px;
+}
+
+#product-input {
+    width: 70%;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+#search-button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#search-button:hover {
+    background-color: #555;
+}
+
+.results-section {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 5px 0;
+}
+
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <meta name="description" content="Discover profitable dropshipping products with our research tool. Easily search for trending and high-demand items." />
+        <title>Dropshipping Product Research Tool - Find Profitable Products</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Dropshipping Product Research Tool</h1>
+    </header>
+    <main>
+        <section class="search-section">
+            <h2>Search for Products</h2>
+            <input type="text" id="product-input" placeholder="Enter a product name">
+            <button id="search-button">Search</button>
+        </section>
+        <section class="results-section">
+            <h2>Search Results</h2>
+            <ul id="product-list">
+                <!-- Display search results here -->
+            </ul>
+        </section>
+    </main>
+    <script src="script.js"></script>
+
+
+    <script>
+      const productInput = document.getElementById("product-input");
+const searchButton = document.getElementById("search-button");
+const productList = document.getElementById("product-list");
+
+searchButton.addEventListener("click", () => {
+    const productId = productInput.value; // Get the product ID from the input field
+
+    // Replace 'YourAppID' with your eBay application ID (AppID)
+    const appId = 'SamsonOl-Profitpa-SBX-7677d592a-494f916f';
+
+    // eBay API URL for the 'findItemsByProduct' operation
+    const apiUrl = `https://svcs.ebay.com/services/search/FindingService/v1?
+        OPERATION-NAME=findItemsByProduct&
+        SERVICE-VERSION=1.0.0&
+        SECURITY-APPNAME=${appId}&
+        RESPONSE-DATA-FORMAT=XML&
+        REST-PAYLOAD&
+        paginationInput.entriesPerPage=2&
+        productId.@type=ReferenceID&
+        productId=${productId}`;
+
+    // Make the API request
+    fetch(apiUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.text(); // Use .text() to parse XML response
+        })
+        .then(data => {
+            // Process the XML response (data) here
+            // You can use libraries like DOMParser to parse XML data
+            // and extract the information you need
+            console.log(data); // Log the XML response for further processing
+        })
+        .catch(error => {
+            console.error("Error fetching data from eBay API:", error);
+            productList.innerHTML = "<p>An error occurred while fetching data.</p>";
+        });
+});
+
+
+    </script>
+</body>
+</html>

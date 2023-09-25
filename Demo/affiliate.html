@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.css">
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-njn1/YIu72rurXJu5kji+AkPwoG3doKq4ZDEm6S4hXj2hpo9MPU7UML2TVPg1AXdZuspxL70W2vETx3k2buWw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+  <title>EARN FROM HOME</title>
+  
+
+  
+  <style>
+    /* CSS Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      font-size: 16px;
+      
+    }
+    
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      
+      
+    }
+
+    .alert {
+      background-color: #f44336;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+    
+    h1 {
+      text-align: center;
+      color: #4CAF50;
+      font-size: 28px;
+      margin-bottom: 20px;
+      
+    }
+    
+    p {
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+    
+    .button {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+.button:focus,
+.button:active {
+  transform: scale(0.95);
+}
+
+
+ /* Lead Capture Section Styles */
+ .lead-capture {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .lead-capture h2 {
+    font-size: 24px;
+    color: #4CAF50;
+    margin-bottom: 10px;
+  }
+
+  .lead-capture p {
+    font-size: 18px;
+    color: #666;
+  }
+
+
+  .lead-capture input[type="email"] {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+
+  .lead-capture .button {
+    display: block;
+    margin: 0 auto;
+  }
+
+    
+    /* Responsive Image Styles */
+    .responsive-image {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    @media (max-width: 480px) {
+      .container {
+        padding: 10px;
+      }
+    }
+
+
+  
+  
+
+    /* Additional Offers Styles */
+    .additional-offers {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .additional-offer {
+      width: 200px;
+      margin: 10px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .additional-offer img {
+    max-width: 100%; /* Ensure GIFs don't exceed the width of the card */
+    height: auto; /* Maintain the aspect ratio of the GIFs */
+    display: block;
+    margin: 0 auto 10px; /* Center the GIFs horizontally */
+  }
+
+    .additional-offer:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .additional-offer h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .additional-offer p {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .additional-offer a {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 5px;
+      background-color:#4CAF50; 
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .additional-offer a:hover {
+      background-color: #45a049;
+    }
+
+    
+    .additional-offer a:focus {
+      outline: none;
+    }
+    
+    .additional-offer a:active {
+      transform: scale(0.95);
+    }
+
+    .additional-offer a:focus,
+    .additional-offer a:active {
+      background-color: #3e8e41;
+    }
+   .dashboard {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .dashboard h2 {
+      font-size: 24px;
+      color: #4CAF50;
+      margin-bottom: 10px;
+    }
+
+    .dashboard p {
+      font-size: 18px;
+      color: #666;
+    }
+
+    .dashboard span {
+      font-weight: bold;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #ccc;
+    }
+    
+    .footer a {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      border: 1px solid #4CAF50;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    
+    .footer a:hover {
+      background-color: #45a049;
+    }
+
+    .claim-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.claim-section h2 {
+  font-size: 24px;
+  color: #4CAF50;
+  margin-bottom: 10px;
+}
+
+.claim-section p {
+  font-size: 18px;
+  color: #666;
+}
+
+.claim-section button {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+   /* CSS Styles for the Video Explainer */
+   .video-explainer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.video-explainer h2 {
+  font-size: 24px;
+  color: #4CAF50;
+  margin-bottom: 10px;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio (for a 16:9 video) */
+  height: 0;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+ /* Testimonial Section Styles */
+ .testimonial-section {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .testimonial-section h2 {
+    font-size: 24px;
+    color: #4CAF50;
+    margin-bottom: 10px;
+  }
+
+  .testimonial-section .row {
+    display: flex;
+    justify-content: center;
+  }
+
+  .testimonial-section .col-md-6 {
+    padding: 10px;
+  }
+
+  .testimonial-section .card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .testimonial-section .card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .testimonial-section blockquote {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+
+  .testimonial-section footer {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  h2 {
+      text-align: center;
+      color: #4CAF50;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+
+     /* Add these styles to your existing CSS code */
+.virtual-gift-card-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.virtual-gift-card-section h2 {
+  font-size: 24px;
+  color: #4CAF50;
+  margin-bottom: 10px;
+}
+
+.gift-card-offers {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.gift-card-offer {
+  width: 200px;
+  margin: 10px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease;
+}
+
+.gift-card-offer img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px;
+  cursor: pointer;
+}
+
+.gift-card-offer:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.gift-card-offer a {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.gift-card-offer a:hover {
+  background-color: #45a049;
+}
+
+
+.earning-image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+  </style>
+ 
+
+</head>
+<body>
+   
+   
+
+  <div class="container">
+  
+    <div class="lead-capture">
+      <h2>Claim Your Gift Card Now!</h2>
+      <p>Enter your email to get started:</p>
+      <form id="leadCaptureForm">
+        <input type="email" placeholder="Your Email" required>
+     
+        <button type="submit" class="button">Get Started</button>
+      </form>
+    </div>
+    
+    
+ 
+
+
+
+    
+     <div class="alert">
+      <p>🔥 Participate in a Quick Survey and Gain Access to $30 Worth of Bitcoin! each into your wallet 🔥 EXPLORE OUR PROMOTIONS TO CLAIM THE OFFER.</p>
+    </div>
+    <h1>Claim Your $100 Walmart Gift Card Today!"</h1>
+    <p>
+      Experience shopping bliss at Walmart! Win a $100 Walmart Gift Card and indulge in your favorite products. Complete our quick survey now for a chance to unlock a shopping extravaganza like never before. Hurry, enter today and embark on a journey of blissful shopping!
+    </p>
+    
+     <!-- Video Explainer Section -->
+     <div class="video-explainer">
+      <h2>Watch Our Video Explainer</h2>
+      <div class="video-container">
+        <!-- Replace with YouTube or Vimeo embed code -->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/igkpyrO2ydo" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+   
+      <!-- Dashboard -->
+    <div class="dashboard">
+      <h2>Balance</h2>
+      <p>Total Earnings: $<span id="earnings">0</span></p>
+      <p><a href="https://playabledownloads.com/1463844" class="button">Withdraw Earnings</a></p>
+    </div>
+    <!-- Add any additional content or images here -->
+    <img src="./img/walmart1.jpg" alt="Offer Image" class="responsive-image">
+   
+   
+  
+   
+    <!-- Pop-up HTML -->
+     <div class="overlay" id="popupOverlay">
+        <div class="popup" id="popup">
+         
+          <h2>Bitcoin Offers</h2>
+          <div class="additional-offers">
+            <div class="additional-offer">
+              <img src="./img/crypto1.gif" alt="Bitcoin Offer 3">
+              <h3>Claim offer now</h3>
+              <p> Experience Unmatched Shopping Delights with Bitcoin Rewards!
+                Unlock Your Ticket to Shopping Paradise! Earn Exclusive Bitcoin Rewards by Participating in Our Survey!</p>
+              <a href="https://tinyurl.com/y9jp3yxk" class="button get-offer"  data-amount="30">Get Offer</a>
+              
+            </div>
+            <div class="additional-offer">
+              <img src="./img/crypto2.gif" alt="Bitcoin Offer 3">
+              <h3>Claim offer now</h3>
+              <p> Embark on the Bitcoin Revolution Today!
+                Revamp Your Financial Future with Bitcoin - Enter Now and Embrace the Future of Digital Currency! </p>
+              <a href="https://tinyurl.com/36s45ux4" class="button get-offer"  data-amount="30">Get Offer</a>
+              
+            </div>
+            <div class="additional-offer">
+              <img src="./img/crypto4.gif" alt="Bitcoin Offer 3">
+              <h3>Claim offer now</h3>
+              <p>Uncover the Power of Bitcoin and Embrace a World of Opportunities!
+                Prepare for Rewards! Participate in our Survey for a Chance to Win Exciting Prizes!</p>
+              <a href="https://tinyurl.com/22xc87be" class="button get-offer"  data-amount="40">Get Offer</a>
+              
+            </div>
+
+            <div class="additional-offer">
+              <img src="./img/crypto5.gif" alt="Bitcoin Offer 3">
+              <h3>Claim offer now</h3>
+              <p>Uncover the Power of Bitcoin and Embrace a World of Opportunities!
+                Prepare for Rewards! Participate in our Survey for a Chance to Win Exciting Prizes!</p>
+              <a href="https://tinyurl.com/22xc87be" class="button get-offer"  data-amount="40">Get Offer</a>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+  
+    
+
+      
+      <div class="claim-section">
+        <h2>Claim Your Gift Card</h2>
+        <p>Do a simple survey and earn cool cash</p>
+        
+     
+
+      </div>
+
+       <!-- Add this section to your existing HTML code -->
+<section class="virtual-gift-card-section">
+  <h2> Gift Card Offers</h2>
+  <div class="gift-card-offers">
+    <div class="gift-card-offer">
+      <a href="https://filestrue.com/1514804">
+        <img src="./img/amazon1.png" alt="Gift Card 1">
+        <p class="gift-card-info">$5 Amazon Gift Card</p>
+        <p class="gift-card-action">Click to Claim</p>
+      </a>
+    </div>
+    <div class="gift-card-offer">
+      <a href="https://filestrue.com/1514804">
+        <img src="./img/amazon2.png" alt="Gift Card 2">
+        <p class="gift-card-info">$10 Starbucks Gift Card</p>
+        <p class="gift-card-action">Click to Redeem</p>
+      </a>
+    </div>
+
+    <div class="gift-card-offer">
+      <a href="YOUR_OFFER_LINK_2">
+        <img src="./img/amazon3.png" alt="Gift Card 2">
+        <p class="gift-card-info">$10 Starbucks Gift Card</p>
+        <p class="gift-card-action">Click to Redeem</p>
+      </a>
+    </div>
+
+    <div class="gift-card-offer">
+      <a href="https://filestrue.com/1514804">
+        <img src="./img/amazon4.png" alt="Gift Card 2">
+        <p class="gift-card-info">$10 Starbucks Gift Card</p>
+        <p class="gift-card-action">Click to Redeem</p>
+      </a>
+    </div>
+
+    <div class="gift-card-offer">
+      <a href="https://filestrue.com/1514804">
+        <img src="./img/paypal1.png" alt="Gift Card 2">
+        <p class="gift-card-info">$10 Starbucks Gift Card</p>
+        <p class="gift-card-action">Click to Redeem</p>
+      </a>
+    </div>
+
+    <div class="gift-card-offer">
+      <a href="https://filestrue.com/1514804">
+        <img src="./img/paypal2.png" alt="Gift Card 2">
+        <p class="gift-card-info">$10 Starbucks Gift Card</p>
+        <p class="gift-card-action">Click to Redeem</p>
+      </a>
+    </div>
+
+    <div class="gift-card-offer">
+      <a href="https://filestrue.com/1514804">
+        <img src="./img/steam1.png" alt="Gift Card 2">
+        <p class="gift-card-info">$10 Starbucks Gift Card</p>
+        <p class="gift-card-action">Click to Redeem</p>
+      </a>
+    </div>
+
+    <div class="gift-card-offer">
+      <a href="YOUR_OFFER_LINK_2">
+        <img src="./img/payoneer.png" alt="Gift Card 2">
+        <p class="gift-card-info">$10 Starbucks Gift Card</p>
+        <p class="gift-card-action">Click to Redeem</p>
+      </a>
+    </div>
+
+    <div class="gift-card-offer">
+      <a href="YOUR_OFFER_LINK_2">
+        <img src="./img/zalando.png" alt="Gift Card 2">
+        <p class="gift-card-info">$10 Starbucks Gift Card</p>
+        <p class="gift-card-action">Click to Redeem</p>
+      </a>
+    </div>
+    <!-- Add more gift card offers here with their respective image URLs and offer links -->
+  </div>
+</section>
+
+
+     <!-- Testimonial Section -->
+     <div class="testimonial-section">
+      <h2>Testimonials</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <img src="path/to/earning_image_2.jpg" alt="Earning Image Proof 2" class="earning-image">
+              <blockquote class="blockquote mb-0">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Etiam viverra, tortor eu sagittis laoreet, risus massa scelerisque turpis.</p>
+                <footer class="blockquote-footer">John Doe</footer>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <img src="path/to/earning_image_1.jpg" alt="Earning Image Proof 1" class="earning-image">
+              <blockquote class="blockquote mb-0">
+                <p>Proin ultricies euismod velit, nec gravida orci ultrices in. Pellentesque vitae fringilla elit. Duis consequat massa et sem mattis euismod.</p>
+                <footer class="blockquote-footer">Jane Smith</footer>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of Testimonial Section -->
+   
+
+      <!-- Add this line to include the Font Awesome JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-njn1/YIu72rurXJu5kji+AkPwoG3doKq4ZDEm6S4hXj2hpo9MPU7UML2TVPg1AXdZuspxL70W2vETx3k2buWw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+      
+        
+    <!-- Footer section -->
+    <div class="footer">
+      <a href="product.html">View Product</a>
+    </div>
+    
+    <!-- Add any additional JavaScript interactivity here -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
+    <script>
+
+
+     
+     
+    
+      
+      // JavaScript code for lead capture form submission
+      document.getElementById("leadCaptureForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission
+        var email = document.getElementById("leadCaptureForm").elements["email"].value;
+        // Perform any necessary validation or processing here
+        // Submit the form data to your CPA account backend or email service provider
+      });
+
+   
+
+
+
+ </script>
+      
+
+  </div>
+  <script>
+    // JavaScript code for updating dashboard earnings and storing in localStorage
+    const getOfferButtons = document.querySelectorAll(".get-offer");
+    const earningsDisplay = document.getElementById("earnings");
+    let totalEarnings = parseInt(localStorage.getItem("totalEarnings")) || 0; // Retrieve previous earnings from localStorage
+  
+    // Update earnings display with initial value from localStorage
+    earningsDisplay.textContent = totalEarnings;
+  
+    getOfferButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const amount = parseInt(button.getAttribute("data-amount"));
+        totalEarnings += amount;
+        earningsDisplay.textContent = totalEarnings;
+  
+        // Store the updated totalEarnings in localStorage
+        localStorage.setItem("totalEarnings", totalEarnings.toString());
+  
+        button.style.backgroundColor = "#45a049"; // Change button color after click
+      });
+    });
+  </script>
+  
+
+</body>
+
+
+</html>

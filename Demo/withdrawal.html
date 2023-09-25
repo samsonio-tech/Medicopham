@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="withdraw.css">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>Withdrawal Request</title>
+ 
+</head>
+<body>
+  
+  <div class="container">
+      <!-- Add the alert notice here -->
+      <div class="alert alert-warning" role="alert">
+    This is a notice. Please read before proceeding.
+  </div>
+
+    <h1>Withdrawal Request</h1>
+    <p>This is the withdrawal request page. You can submit a withdrawal request from your earnings dashboard here.</p>
+    <div class="dashboard">
+    <p>Total Earnings: $<span id="earnings">0</span></p>
+  </div>
+    <p>
+      <!-- Withdrawal request form goes here -->
+
+      <form id="withdrawalForm" action="" method="POST">
+        <div class="form-group">
+          <label for="withdrawalAmount">Withdrawal Amount</label>
+          <input type="text" id="withdrawalAmount" name="withdrawalAmount" placeholder="Enter withdrawal amount" required>
+          <div class="progress-bar-container">
+            <div id="progressBar" class="progress-bar"></div>
+          </div>
+        </div>
+        <div class="form-group custom-dropdown">
+          <label for="withdrawalMethod">Withdrawal Method</label>
+          <div class="custom-input">
+            <input type="text" id="withdrawalMethod" name="withdrawalMethod" placeholder="Select withdrawal method" required>
+            <div class="dropdown">
+              <div class="dropdown-option" data-value="PayPal">PayPal</div>
+              <div class="dropdown-option" data-value="Bank Transfer">Bank Transfer</div>
+              <div class="dropdown-option" data-value="Trust wallet">Trust wallet</div>
+              <!-- Add more withdrawal methods as needed -->
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="withdrawalAccount">Account Details</label>
+          <input type="text" id="withdrawalAccount" name="withdrawalAccount" placeholder="Enter account details" required>
+        </div>
+        <button type="submit" class="button">Submit Request</button>
+      </form>
+
+   
+
+      <div class="withdrawal-history">
+        <h2>Withdrawal History</h2>
+        <table id="withdrawalHistoryTable">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Method</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2023-07-01</td>
+                <td>$50.00</td>
+                <td>PayPal</td>
+                <td>Completed</td>
+              </tr>
+              <tr>
+                <td>2023-06-15</td>
+                <td>$75.00</td>
+                <td>Bank Transfer</td>
+                <td>Completed</td>
+              </tr>
+              <tr>
+                <td>2023-05-20</td>
+                <td>$30.00</td>
+                <td>PayPal</td>
+                <td>Completed</td>
+              </tr>
+              <tr>
+                <td>2023-04-10</td>
+                <td>$45.00</td>
+                <td>PayPal</td>
+                <td>Completed</td>
+              </tr>
+              <tr>
+                <td>2023-03-05</td>
+                <td>$60.00</td>
+                <td>Bank Transfer</td>
+                <td>Completed</td>
+              </tr>
+              <tr>
+                <td>2023-02-15</td>
+                <td>$25.00</td>
+                <td>PayPal</td>
+                <td>Completed</td>
+              </tr>
+              <tr>
+                <td>2023-01-20</td>
+                <td>$40.00</td>
+                <td>PayPal</td>
+                <td>Completed</td>
+              </tr>
+              <tr>
+                <td>2022-12-10</td>
+                <td>$55.00</td>
+                <td>Bank Transfer</td>
+                <td>Completed</td>
+              </tr>
+              <tr>
+                <td>2022-11-05</td>
+                <td>$70.00</td>
+                <td>PayPal</td>
+                <td>Completed</td>
+              </tr>
+              <tr>
+                <td>2022-10-15</td>
+                <td>$35.00</td>
+                <td>PayPal</td>
+                <td>Completed</td>
+              </tr>
+              <tr>
+                <td>2022-09-20</td>
+                <td>$50.00</td>
+                <td>Bank Transfer</td>
+                <td>Completed</td>
+              </tr>
+              <tr>
+                <td>2022-08-10</td>
+                <td>$65.00</td>
+                <td>PayPal</td>
+                <td>Completed</td>
+              </tr>
+              <tr>
+                <td>2022-07-05</td>
+                <td>$80.00</td>
+                <td>Bank Transfer</td>
+                <td>Completed</td>
+              </tr>
+              <tr>
+                <td>2022-06-15</td>
+                <td>$45.00</td>
+                <td>PayPal</td>
+                <td>Completed</td>
+              </tr>
+              <tr>
+                <td>2022-05-20</td>
+                <td>$60.00</td>
+                <td>PayPal</td>
+                <td>Completed</td>
+              </tr>
+              <tr>
+                <td>2022-04-10</td>
+                <td>$75.00</td>
+                <td>Bank Transfer</td>
+                <td>Completed</td>
+              </tr>
+              <tr>
+                <td>2022-03-05</td>
+                <td>$90.00</td>
+                <td>PayPal</td>
+                <td>Completed</td>
+              </tr>
+              <tr>
+                <td>2022-02-15</td>
+                <td>$55.00</td>
+                <td>PayPal</td>
+                <td>Completed</td>
+              </tr>
+              <tr>
+                <td>2022-01-20</td>
+                <td>$70.00</td>
+                <td>Bank Transfer</td>
+                <td>Completed</td>
+              </tr>
+              <tr>
+                <td>2021-12-10</td>
+                <td>$85.00</td>
+                <td>PayPal</td>
+                <td>Completed</td>
+              </tr>
+            </tbody>
+          </table>
+          
+    </div>
+  
+    <script>
+      // Handle form submission
+      var form = document.getElementById('withdrawalForm');
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+  
+        // Process the withdrawal request (replace with your logic)
+        var withdrawalAmount = parseFloat(document.getElementById('withdrawalAmount').value);
+        var withdrawalMethod = document.getElementById('withdrawalMethod').value;
+        var withdrawalAccount = document.getElementById('withdrawalAccount').value;
+  
+        if (withdrawalAmount > 0 && withdrawalMethod && withdrawalAccount) {
+          // Make an AJAX request to your server to process the withdrawal request
+          var xhr = new XMLHttpRequest();
+          xhr.open('POST', '/process-withdrawal');
+          xhr.onload = function() {
+            if (xhr.status === 200) {
+              // Withdrawal request successful
+              console.log('Withdrawal request successful');
+              updatePaymentEarnings(-withdrawalAmount); // Deduct the withdrawal amount from earnings (replace with your logic)
+              addWithdrawalToHistory(withdrawalAmount, withdrawalMethod); // Add the withdrawal to history (replace with your logic)
+            } else {
+              // Withdrawal request failed
+              console.error('Withdrawal request failed');
+            }
+          };
+          xhr.send();
+        } else {
+          // Invalid withdrawal request
+          console.error('Invalid withdrawal request');
+        }
+      });
+  
+      // Update earnings on the withdrawal page
+      function updatePaymentEarnings(amount) {
+        var earningsElement = document.getElementById("paymentEarnings");
+        var currentEarnings = parseFloat(earningsElement.innerText);
+        earningsElement.innerText = (currentEarnings + amount).toFixed(2);
+      }
+
+      // Add withdrawal to history
+      function addWithdrawalToHistory(amount, method) {
+        var withdrawalHistoryTable = document.getElementById("withdrawalHistoryTable").getElementsByTagName('tbody')[0];
+        var newRow = withdrawalHistoryTable.insertRow(0);
+        var dateCell = newRow.insertCell(0);
+        var amountCell = newRow.insertCell(1);
+        var methodCell = newRow.insertCell(2);
+        var statusCell = newRow.insertCell(3);
+        var date = new Date().toISOString().split('T')[0];
+        dateCell.innerHTML = date;
+        amountCell.innerHTML = '$' + amount.toFixed(2);
+        methodCell.innerHTML = method;
+        statusCell.innerHTML = 'Pending'; // You can set the initial status to 'Pending'
+      }
+    </script>
+    </p>
+  </div>
+
+  <script>// JavaScript to handle the custom dropdown
+    document.addEventListener("DOMContentLoaded", function () {
+      var dropdownOptions = document.querySelectorAll(".dropdown-option");
+      var withdrawalMethodInput = document.getElementById("withdrawalMethod");
+    
+      dropdownOptions.forEach(function (option) {
+        option.addEventListener("click", function () {
+          var selectedValue = option.getAttribute("data-value");
+          withdrawalMethodInput.value = selectedValue;
+          toggleDropdown();
+        });
+      });
+    
+      withdrawalMethodInput.addEventListener("focus", toggleDropdown);
+      withdrawalMethodInput.addEventListener("blur", function () {
+        setTimeout(toggleDropdown, 200); // Add a delay to allow clicking on the dropdown
+      });
+    
+      function toggleDropdown() {
+        var dropdown = document.querySelector(".dropdown");
+        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+      }
+    });
+    </script>
+
+    <script>// Inside the form submission event listener
+      var progressBar = document.getElementById("progressBar");
+      
+      if (withdrawalAmount > 0 && withdrawalMethod && withdrawalAccount) {
+        // Calculate progress percentage
+        var progressPercentage = (withdrawalAmount / 100) * 100;
+        progressBar.style.width = progressPercentage + "%";
+      
+        // Make an AJAX request to your server to process the withdrawal request
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/process-withdrawal");
+        xhr.onload = function () {
+          if (xhr.status === 200) {
+            // Withdrawal request successful
+            console.log("Withdrawal request successful");
+            updatePaymentEarnings(-withdrawalAmount);
+            addWithdrawalToHistory(withdrawalAmount, withdrawalMethod);
+            progressBar.style.width = "0%"; // Reset progress bar
+          } else {
+            // Withdrawal request failed
+            console.error("Withdrawal request failed");
+            progressBar.style.width = "0%"; // Reset progress bar
+          }
+        };
+        xhr.send();
+      } else {
+        // Invalid withdrawal request
+        console.error("Invalid withdrawal request");
+      }
+      </script>
+</body>
+</html>

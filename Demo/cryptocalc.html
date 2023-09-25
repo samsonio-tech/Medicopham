@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+
+
+    <style>
+        /* Reset some default styles */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set a background color and font styles */
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+/* Header styles */
+header {
+    background-color: #24292e;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+}
+
+/* Main content styles */
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Input and button styles */
+.input-container {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #3fc165;
+}
+
+/* Results section styles */
+#results {
+    margin-top: 20px;
+}
+
+#investment-result {
+    padding: 15px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #24292e;
+    color: #ffffff;
+    font-size: 0.8em;
+}
+
+
+
+    /* Mobile optimization */
+    @media (max-width: 768px) {
+        main {
+            padding: 10px;
+        }
+
+        button {
+            font-size: 16px;
+        }
+    }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Use our Cryptocurrency Investment Calculator to project returns on your investments. Calculate ROI and view historical price charts." />
+    <title>Cryptocurrency Investment Calculator - Calculate ROI and Projections</title>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Cryptocurrency Investment Calculator</h1>
+    </header>
+
+    <main>
+        <section id="calculator">
+            <h2>Investment Details</h2>
+            <div class="input-container">
+
+                 <!-- Select Cryptocurrency -->
+                <label for="cryptocurrency-select">Select Cryptocurrency:</label>
+                  <select id="cryptocurrency-select">
+                  <option value="BTC">Bitcoin (BTC)</option>
+                  <option value="ETH">Ethereum (ETH)</option>
+                   <option value="XRP">Ripple (XRP)</option>
+                   <option value="LTC">Litecoin (LTC)</option>
+                   <option value="BCH">Bitcoin Cash (BCH)</option>
+                   <option value="ADA">Cardano (ADA)</option>
+    
+              <!-- Add more cryptocurrency options here -->
+                 </select>
+
+                 <!-- Currency Conversion -->
+                    <label for="currency-selector">Currency Conversion:</label>
+                    <select id="currency-selector">
+                        <!-- Add currency options dynamically using JavaScript -->
+                    </select>
+                </div>
+                
+                <label for="initial-investment">Initial Investment ($):</label>
+                <input type="number" id="initial-investment" placeholder="Enter initial investment">
+            </div>
+            <div class="input-container">
+                <label for="investment-period">Investment Period (years):</label>
+                <input type="number" id="investment-period" placeholder="Enter investment period">
+            </div>
+            <div class="input-container">
+                <label for="annual-return">Annual Return (%):</label>
+                <input type="number" id="annual-return" placeholder="Enter annual return">
+            </div>
+            <button id="calculate-button">Calculate</button>
+        </section>
+
+       <!-- <div id="conversion-result">
+          Conversion result will be displayed here 
+        </div> -->
+
+        <section id="results">
+            <h2>Investment Projection</h2>
+            <div id="investment-result">
+                <!-- Results will be displayed here -->
+            </div>
+
+               <div id="chart-container">
+                <canvas id="chart"></canvas>
+            </div>
+
+        </section>
+    </main>
+
+    <div id="historical-chart-container">
+        <canvas id="historical-chart"></canvas>
+    </div>
+    
+    <button id="view-historical-data">View Historical Price Charts</button>
+
+    <footer>
+        <p>&copy; 2023 Cryptocurrency Investment Calculator</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const calculateButton = document.getElementById('calculate-button');
+    const initialInvestmentInput = document.getElementById('initial-investment');
+    const investmentPeriodInput = document.getElementById('investment-period');
+    const annualReturnInput = document.getElementById('annual-return');
+    const investmentResult = document.getElementById('investment-result');
+    const currencySelector = document.getElementById('currency-selector');
+    const conversionResult = document.getElementById('conversion-result');
+
+    
+    
+
+    // Fetch exchange rates from CoinGecko API
+    const fetchExchangeRates = async () => {
+        try {
+            const response = await axios.get('https://api.coingecko.com/api/v3/exchange_rates');
+            return response.data;
+        } catch (error) {
+            console.error('Error fetching exchange rates:', error);
+        }
+    };
+
+    // Calculate investment and display results
+    const calculateInvestment = async () => {
+        const initialInvestment = parseFloat(initialInvestmentInput.value);
+        const investmentPeriod = parseInt(investmentPeriodInput.value);
+        const annualReturn = parseFloat(annualReturnInput.value);
+
+        const exchangeRates = await fetchExchangeRates();
+        const selectedCurrency = currencySelector.value;
+
+        // Perform investment calculation (customize as needed)
+        const futureValue = initialInvestment * Math.pow(1 + (annualReturn / 100), investmentPeriod);
+
+        // Convert to selected currency
+        const convertedValue = futureValue * exchangeRates[selectedCurrency.toLowerCase()];
+
+        
+        // Display the result
+        investmentResult.innerHTML = `After ${investmentPeriod} years, your investment will be worth $${futureValue.toFixed(2)} USD.`;
+        conversionResult.innerHTML = `In ${selectedCurrency}, it's approximately ${convertedValue.toFixed(2)} ${selectedCurrency}.`;
+    };
+
+    calculateButton.addEventListener('click', calculateInvestment);
+});
+
+    </script>
+
+<script>
+    //Fetch Real-time data
+    const fetchCryptocurrencyData = async () => {
+    try {
+        const response = await axios.get('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,ripple,litecoin,bitcoin-cash,cardano&vs_currencies=usd');
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching cryptocurrency data:', error);
+    }
+};
+
+</script>
+
+
+
+
+<script>
+    // Add interactive chart using chart.js
+    const updateChart = (bitcoinPrice, ethereumPrice, RipplePrice, LitecoinPrice, BitcoinCashPrice, CardanoPrice) => {
+        const ctx = document.getElementById('chart').getContext('2d');
+        
+        const data = {
+            labels: ['Bitcoin (BTC)', 'Ethereum (ETH)', 'Ripple (XRP)', 'Litecoin (LTC)', 'BitcoinCash (BCH)', 'Cardano (ADA)'],
+            datasets: [
+                {
+                    label: 'Cryptocurrency Prices (USD)',
+                    data: [bitcoinPrice, ethereumPrice, RipplePrice, LitecoinPrice, BitcoinCashPrice, CardanoPrice],
+                    backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
+                    borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
+                    borderWidth: 1,
+                },
+            ],
+        };
+        
+        const config = {
+            type: 'bar',
+            data: data,
+        };
+        
+        const myChart = new Chart(ctx, config);
+    };
+</script>
+
+<script>
+// update the chart on page load
+document.addEventListener('DOMContentLoaded', async () => {
+    // Replace these values with the actual cryptocurrency data
+    const bitcoinPrice = 50000;
+    const ethereumPrice = 3000;
+    const RipplePrice = 2;
+    const LitecoinPrice = 150;
+    const BitcoinCashPrice = 600;
+    const CardanoPrice = 2.5;
+    
+    updateChart(bitcoinPrice, ethereumPrice, RipplePrice, LitecoinPrice, BitcoinCashPrice, CardanoPrice);
+});
+</script>
+
+
+<script>
+    // Inside the DOMContentLoaded event listener
+const cryptocurrencyData = await fetchCryptocurrencyData();
+const bitcoinPrice = cryptocurrencyData.bitcoin.usd;
+const ethereumPrice = cryptocurrencyData.ethereum.usd;
+const RipplePrice = cryptocurrencyData.ripple.usd; // Add Ripple price
+    const LitecoinPrice = cryptocurrencyData.litecoin.usd; // Add Litecoin price
+    const BitcoinCashPrice = cryptocurrencyData.bitcoincash.usd; // Add BitcoinCash price
+    const CardanoPrice = cryptocurrencyData.cardano.usd; // Add Cardano price
+    
+    updateChart(bitcoinPrice, ethereumPrice, RipplePrice, LitecoinPrice, BitcoinCashPrice, CardanoPrice);
+
+</script>
+
+
+</script>
+
+
+
+<script>
+
+       //function to fetch historical data
+       const fetchHistoricalData = async () => {
+    try {
+        const response = await axios.get('https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=30');
+        return response.data.prices; // Assuming the API response has a 'prices' array
+    } catch (error) {
+        console.error('Error fetching historical data:', error);
+    }
+};
+
+//function to render historicalchart
+
+const renderHistoricalChart = (data) => {
+    const historicalPrices = data.map((entry) => entry[1]); // Assuming the data format is [timestamp, price]
+
+    const ctx = document.getElementById('historical-chart').getContext('2d');
+
+    const chartData = {
+        labels: [...Array(data.length).keys()],
+        datasets: [
+            {
+                label: 'Price (USD)',
+                data: historicalPrices,
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1,
+                fill: false,
+            },
+        ],
+    };
+
+    const chartOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            x: {
+                type: 'linear',
+                position: 'bottom',
+            },
+        },
+    };
+
+    const historicalChart = new Chart(ctx, {
+        type: 'line',
+        data: chartData,
+        options: chartOptions,
+    });
+};
+
+</script>
+
+<script>
+    //Event listener to button
+
+    document.getElementById('view-historical-data').addEventListener('click', async () => {
+    const historicalData = await fetchHistoricalData();
+    renderHistoricalChart(historicalData);
+});
+
+
+</script>
+<script>
+
+// Inside the JavaScript code, add options to the currency selector.
+const currencySelector = document.getElementById('currency-selector');
+
+// Populate the currency dropdown with options
+const currencyOptions = {
+    usd: 'US Dollar (USD)',
+    eur: 'Euro (EUR)',
+    // Add more currency options here
+};
+
+// Populate the dropdown with options
+for (const currency in currencyOptions) {
+    const option = document.createElement('option');
+    option.value = currency;
+    option.textContent = currencyOptions[currency];
+    currencySelector.appendChild(option);
+}
+
+</script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Your JavaScript code here
+
+        // Define functions like fetchExchangeRates, calculateInvestment, fetchCryptocurrencyData, updateChart, and others here.
+
+        // Function to fetch historical data for a cryptocurrency and time period
+        const fetchHistoricalData = async (cryptocurrency, days) => {
+            try {
+                const url = `https://api.coingecko.com/api/v3/coins/${cryptocurrency}/market_chart?vs_currency=usd&days=${days}`;
+                const response = await axios.get(url);
+                return response.data.prices; // Assuming the API response has a 'prices' array
+            } catch (error) {
+                console.error('Error fetching historical data:', error);
+            }
+        };
+
+        // Example usage of fetchHistoricalData
+        document.getElementById('view-historical-data').addEventListener('click', async () => {
+            const cryptocurrency = 'bitcoin'; // Change to the desired cryptocurrency
+            const days = 30; // Change to the desired number of days
+            const historicalData = await fetchHistoricalData(cryptocurrency, days);
+            renderHistoricalChart(historicalData);
+        });
+
+        // Rest of your code...
+    });
+</script>
+
+
+</script>
+</body>
+</html>
